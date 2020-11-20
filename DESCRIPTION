@@ -1,0 +1,16 @@
+Package: srt
+Title: Read subtitle files into R
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Kiernan",
+           family = "Nicholls",
+           role = c("aut", "cre"),
+           email = "kiernann@protonmail.com")
+Description: Read SubRip subtitle files into R as data frames
+    for easy analysis and manipulation. Export subtitles back into SubRip
+    format or as tabular data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
