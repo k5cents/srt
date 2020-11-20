@@ -1,0 +1,21 @@
+test_that("movie srt files can be read as data frames", {
+  ex <- srt_example("toy-story.en.srt")
+  x <- read_srt(ex, collapse = " ")
+  expect_length(x, 4)
+  expect_s3_class(x, "data.frame")
+  expect_type(x$n, "integer")
+  expect_type(x$start, "double")
+  expect_type(x$subtitle, "character")
+  expect_equal(nrow(x), 1398)
+})
+
+test_that("television srt files can be read as data frames", {
+  ex <- srt_example("community-pilot.en.srt")
+  x <- read_srt(ex, collapse = "\n")
+  expect_length(x, 4)
+  expect_s3_class(x, "data.frame")
+  expect_type(x$n, "integer")
+  expect_type(x$start, "double")
+  expect_type(x$subtitle, "character")
+  expect_equal(nrow(x), 477)
+})

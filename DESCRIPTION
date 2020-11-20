@@ -10,6 +10,10 @@ Description: Read SubRip subtitle files into R as data frames
     for easy analysis and manipulation. Export subtitles back into SubRip
     format or as tabular data.
 License: GPL-3
+Suggests: 
+    testthat (>= 3.0.0),
+    tibble (>= 3.0.4),
+    covr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

@@ -1,0 +1,81 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  fig.height = 4,
+  fig.width = 9,
+  out.width = "100%",
+  dpi = 300
+)
+if (!interactive()) {
+  options(width = 95)
+}
+```
+
+# srt <img src='man/figures/logo.png' align="right" height="139" />
+
+<!-- badges: start -->
+[![Lifecycle: experimental][life_badge]][life_link]
+[![CRAN status][cran_badge]][cran_link]
+[![Codecov test coverage][cov_badge]][cov_link]
+[![R build status][ga_badge]][ga_link]
+<!-- badges: end -->
+
+The goal of 'srt' is to read [SubRip][wiki] text files as tabular data for
+easy analysis and manipulation.
+
+## Installation
+
+You can install the development version of 'srt' from [GitHub][gh] with:
+
+```{r install, eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("kiernann/srt")
+```
+
+## Example
+
+Linear `.srt` files can be read as tabular data frames. The `.srt` standard is
+used to identify the subtitle components for the columns of a data frame:
+
+1. A numeric counter identifying each sequential subtitle
+2. The time that the subtitle should appear followed by `-->` and the time it
+should disappear
+3. Subtitle text itself on one or more lines
+4. A blank line containing no text, indicating the end of this subtitle
+
+```{r library}
+library(srt)
+ex <- srt_example("toy-story.en.srt")
+```
+
+```{r lines, echo=FALSE}
+cat(readLines(ex, n = 12), sep = "\n")
+```
+
+```{r tabular}
+read_srt(path = ex, collapse = " ")
+```
+
+<!-- refs: start -->
+[life_badge]: https://img.shields.io/badge/lifecycle-experimental-orange.svg
+[life_link]: https://www.tidyverse.org/lifecycle/#experimental
+[cran_badge]: https://www.r-pkg.org/badges/version/srt
+[cran_link]: https://CRAN.R-project.org/package=srt
+[ga_badge]: https://github.com/kiernann/srt/workflows/R-CMD-check/badge.svg
+[ga_link]: https://github.com/kiernann/srt/actions
+[cov_badge]: https://codecov.io/gh/kiernann/srt/branch/master/graph/badge.svg
+[cov_link]: https://codecov.io/gh/kiernann/srt?branch=master
+[gh]: https://github.com/kiernann/srt
+[wiki]: https://en.wikipedia.org/wiki/SubRip
+<!-- refs: end -->
