@@ -9,9 +9,11 @@
 #' srt_example()
 #' srt_example("toy-story.en.srt")
 srt_example <- function(file = NULL) {
+  exs <- dir(system.file("extdata", package = "srt"))
   if (is.null(file)) {
-    dir(system.file("extdata", package = "srt"))
-  } else {
-    system.file("extdata", file, package = "srt", mustWork = TRUE)
+    return(exs)
+  } else if (is.numeric(file)) {
+    file <- exs[file]
   }
+  system.file("extdata", file, package = "srt", mustWork = TRUE)
 }
