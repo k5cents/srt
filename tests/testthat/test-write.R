@@ -5,3 +5,15 @@ test_that("srt text files written from data frame", {
   expect_error(read.csv(p))
   expect_error(readLines(p), NA)
 })
+
+test_that("non-srt files fail to write", {
+  expect_error(write_srt(1:3))
+  expect_error(write_srt(letters))
+  expect_error(write_srt(iris))
+  x <- read_srt(srt_example(1))
+  x[[2]] <- as.character(x[[2]])
+  expect_error(write_srt(x))
+  x <- read_srt(srt_example(1))
+  x[[3]] <- as.character(x[[3]])
+  expect_error(write_srt(x))
+})

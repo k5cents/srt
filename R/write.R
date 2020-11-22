@@ -14,6 +14,7 @@
 #' @param width If `wrap` is `TRUE`, the width of each wrapped subtitle.
 #' @export
 write_srt <- function(x, path = NULL, wrap = TRUE, width = 40) {
+  stopifnot(is_srt(x))
   x[2:3] <- lapply(x[2:3], as_timestamp)
   sink(file = path, append = FALSE)
   apply(x, MARGIN = 1, FUN = cat_subtitle, wrap = wrap, width = width)
