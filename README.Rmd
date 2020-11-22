@@ -63,8 +63,22 @@ ex <- srt_example("toy-story.en.srt")
 cat(readLines(ex, n = 12), sep = "\n")
 ```
 
+These subtitle files are parsed as data frames.
+
 ```{r tabular}
-read_srt(path = ex, collapse = " ")
+(ts <- read_srt(path = ex, collapse = " "))
+```
+
+The times from these files can be shifted forwards or backwards.
+
+```{r shift}
+ts <- srt_shift(ts, seconds = 9.99)
+tmp <- tempfile(fileext = ".srt")
+write_srt(ts, tmp, wrap = FALSE)
+```
+
+```{r post, echo=FALSE}
+cat(sub("^\\s+", "", readLines(tmp, n = 12)), sep = "\n")
 ```
 
 <!-- refs: start -->

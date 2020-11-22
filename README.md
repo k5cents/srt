@@ -61,11 +61,13 @@ ex <- srt_example("toy-story.en.srt")
     #> 00:01:04,398 --> 00:01:06,482
     #> Now, empty that safe!
 
+These subtitle files are parsed as data frames.
+
 ``` r
-read_srt(path = ex, collapse = " ")
+(ts <- read_srt(path = ex, collapse = " "))
 #> # A tibble: 1,398 x 4
-#>        n start   end text                                            
-#>    <int> <dbl> <dbl> <fct>                                           
+#>        n start   end subtitle                                        
+#>    <int> <dbl> <dbl> <chr>                                           
 #>  1     1  58.6  61.6 BOY: All right, everyone! This... is a stick-up!
 #>  2     2  61.7  63.4 Don't anybody move!                             
 #>  3     3  64.4  66.5 Now, empty that safe!                           
@@ -78,6 +80,26 @@ read_srt(path = ex, collapse = " ")
 #> 10    10  92.5  94.7 Oh, no! Sheriff Woody!                          
 #> # … with 1,388 more rows
 ```
+
+The times from these files can be shifted forwards or backwards.
+
+``` r
+ts <- srt_shift(ts, seconds = 9.99)
+tmp <- tempfile(fileext = ".srt")
+write_srt(ts, tmp, wrap = FALSE)
+```
+
+    #> 1
+    #> 00:01:08,549 --> 00:01:11,592
+    #> BOY: All right, everyone! This... is a stick-up!
+    #> 
+    #> 2
+    #> 00:01:11,677 --> 00:01:13,344
+    #> Don't anybody move!
+    #> 
+    #> 3
+    #> 00:01:14,388 --> 00:01:16,472
+    #> Now, empty that safe!
 
 <!-- refs: start -->
 
