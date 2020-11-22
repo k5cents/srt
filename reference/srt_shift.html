@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parse components of a subtitle file — srt_seconds • srt</title>
+<title>Uniformly shift subtitle times — srt_shift • srt</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Parse components of a subtitle file — srt_seconds" />
-<meta property="og:description" content="Parse components of a subtitle file" />
+<meta property="og:title" content="Uniformly shift subtitle times — srt_shift" />
+<meta property="og:description" content="Uniformly shift subtitle times" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -119,33 +119,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parse components of a subtitle file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/srt/blob/master/R/parse.R'><code>R/parse.R</code></a></small>
-    <div class="hidden name"><code>srt_seconds.Rd</code></div>
+    <h1>Uniformly shift subtitle times</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/srt/blob/master/R/shift.R'><code>R/shift.R</code></a></small>
+    <div class="hidden name"><code>srt_shift.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Parse components of a subtitle file</p>
+    <p>Uniformly shift subtitle times</p>
     </div>
 
-    <pre class="usage"><span class='fu'>srt_seconds</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-
-<span class='fu'>srt_index</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-
-<span class='fu'>srt_text</span><span class='op'>(</span><span class='va'>x</span>, collapse <span class='op'>=</span> <span class='st'>"\n"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>srt_shift</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>seconds</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A character vector with the lines of an <code>.srt</code> file.</p></td>
+      <td><p>A subtitle data frame from <code><a href='read_srt.html'>read_srt()</a></code>.</p></td>
     </tr>
     <tr>
-      <th>collapse</th>
-      <td><p>The character with which to separate subtitle lines.</p></td>
+      <th>seconds</th>
+      <td><p>The number of seconds to shift the start and end time.</p></td>
     </tr>
     </table>
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
+<pre><span class='fu'><a href='read_srt.html'>read_srt</a></span><span class='op'>(</span><span class='va'>file</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>srt_shift</span><span class='op'>(</span><span class='fl'>2.1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='write_srt.html'>write_srt</a></span><span class='op'>(</span><span class='va'>file</span><span class='op'>)</span>
+</pre>
 
 
   </div>
