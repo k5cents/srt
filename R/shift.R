@@ -26,6 +26,7 @@ is_srt <- function(x) {
     stop("column 2 is not numeric")
   }
   if (!is.numeric(x[[3]])) {
-    stop("column 4 is not numeric")
+    stop("column 3 is not numeric")
   }
+  return(TRUE)
 }
