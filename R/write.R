@@ -16,23 +16,29 @@
 write_srt <- function(x, path = NULL, wrap = TRUE, width = 40) {
   stopifnot(is_srt(x))
   x[2:3] <- lapply(x[2:3], as_timestamp)
-  sink(file = path, append = FALSE)
-  apply(x, MARGIN = 1, FUN = cat_subtitle, wrap = wrap, width = width)
-  on.exit(sink())
+  if (wrap) {
+    x[[4]] <- paste(strwrap(x[[4]], width = width), collapse = "\n")
+  }
+  subs <- paste(
+    x[[1]], # index
+    paste(x[[2]], x[[3]], sep = " --> "), #timestamp
+    x[[4]], # subtitle text
+    "", # newline break
+    sep = "\n"
+  )
+  writeLines(subs, con = path)
   invisible(path)
 }
 
-cat_subtitle <- function(l, wrap = TRUE, width = 40) {
-  if (wrap) {
-    l[[4]] <- paste(strwrap(l[[4]], width = width), collapse = "\n")
-  }
-  cat(
-    l[[1]],
-    paste(l[[2]], l[[3]], sep = " --> "),
-    l[[4]],
+sub_lines <- function(l, wrap = TRUE, width = 40) {
+
+  paste(
+    l[[1]], # index
+    paste(l[[2]], l[[3]], sep = " --> "), #timestamp
+    l[[4]], # subtitle text
+    "", # newline break
     sep = "\n"
   )
-  cat("\n")
 }
 
 as_timestamp <- function(y){
