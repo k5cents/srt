@@ -17,3 +17,12 @@ test_that("non-srt files fail to write", {
   x[[3]] <- as.character(x[[3]])
   expect_error(write_srt(x))
 })
+
+test_that("written lines match read lines exactly", {
+  x <- read_srt(srt_example(2), collapse = "\n")
+  p <- write_srt(x, tempfile(fileext = ".srt"), wrap = FALSE)
+  expect_true(file.exists(p))
+  a <- readLines(srt_example(2))
+  b <- readLines(p)
+  expect_equal(a, b)
+})
