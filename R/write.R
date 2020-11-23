@@ -26,7 +26,7 @@ write_srt <- function(x, path = NULL, wrap = TRUE, width = 40) {
     "", # newline break
     sep = "\n"
   )
-  writeLines(subs, con = path)
+  writeLines(subs, con = path, sep = "\n")
   invisible(path)
 }
 
