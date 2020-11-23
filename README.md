@@ -31,9 +31,8 @@ remotes::install_github("kiernann/srt")
 
 ## Example
 
-Linear `.srt` files can be read as tabular data frames. The `.srt`
-standard is used to identify the subtitle components for the columns of
-a data frame:
+The `.srt` standard is used to identify the subtitle components for the
+columns of a data frame:
 
 1.  A numeric counter identifying each sequential subtitle
 2.  The time that the subtitle should appear followed by `-->` and the
@@ -42,11 +41,6 @@ a data frame:
 4.  A blank line containing no text, indicating the end of this subtitle
 
 <!-- end list -->
-
-``` r
-library(srt)
-ex <- srt_example("toy-story.en.srt")
-```
 
     #> 1
     #> 00:00:58,559 --> 00:01:01,602
@@ -61,10 +55,10 @@ ex <- srt_example("toy-story.en.srt")
     #> 00:01:04,398 --> 00:01:06,482
     #> Now, empty that safe!
 
-These subtitle files are parsed as data frames.
+These subtitle files are parsed as data frames with separate columns.
 
 ``` r
-(ts <- read_srt(path = ex, collapse = " "))
+(toy_story <- read_srt(path = srt, collapse = " "))
 #> # A tibble: 1,398 x 4
 #>        n start   end subtitle                                        
 #>    <int> <dbl> <dbl> <chr>                                           
@@ -81,12 +75,40 @@ These subtitle files are parsed as data frames.
 #> # … with 1,388 more rows
 ```
 
-The times from these files can be shifted forwards or backwards.
+This makes it easy to perform various text analysis on the subtitles.
 
 ``` r
-ts <- srt_shift(ts, seconds = 9.99)
+toy_story %>% 
+  unnest_tokens(word, subtitle) %>% 
+  count(word, sort = TRUE) %>% 
+  anti_join(stop_words)
+#> # A tibble: 1,314 x 2
+#>    word      n
+#>    <chr> <int>
+#>  1 buzz    122
+#>  2 woody    72
+#>  3 hey      63
+#>  4 whoa     37
+#>  5 andy     35
+#>  6 ha       35
+#>  7 mom      35
+#>  8 gasps    31
+#>  9 sid      30
+#> 10 toy      30
+#> # … with 1,304 more rows
+```
+
+Or uniformly manipulate the *numeric* time stamps:
+
+``` r
+toy_story <- srt_shift(toy_story, seconds = 9.99)
+```
+
+The subtitle data frames can be easily re-written as valid SubRip files.
+
+``` r
 tmp <- tempfile(fileext = ".srt")
-write_srt(ts, tmp, wrap = FALSE)
+write_srt(toy_story, tmp, wrap = FALSE)
 ```
 
     #> 1

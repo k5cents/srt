@@ -45,8 +45,8 @@ remotes::install_github("kiernann/srt")
 
 ## Example
 
-Linear `.srt` files can be read as tabular data frames. The `.srt` standard is
-used to identify the subtitle components for the columns of a data frame:
+The `.srt` standard is used to identify the subtitle components for the columns
+of a data frame:
 
 1. A numeric counter identifying each sequential subtitle
 2. The time that the subtitle should appear followed by `-->` and the time it
@@ -54,31 +54,47 @@ should disappear
 3. Subtitle text itself on one or more lines
 4. A blank line containing no text, indicating the end of this subtitle
 
-```{r library}
+```{r library, echo=FALSE}
 library(srt)
-ex <- srt_example("toy-story.en.srt")
+library(tidyverse)
+library(tidytext)
+srt <- srt_example("toy-story.en.srt")
 ```
 
 ```{r lines, echo=FALSE}
-cat(readLines(ex, n = 12), sep = "\n")
+cat(readLines(srt, n = 12), sep = "\n")
 ```
 
-These subtitle files are parsed as data frames.
+These subtitle files are parsed as data frames with separate columns.
 
 ```{r tabular}
-(ts <- read_srt(path = ex, collapse = " "))
+(toy_story <- read_srt(path = srt, collapse = " "))
 ```
 
-The times from these files can be shifted forwards or backwards.
+This makes it easy to perform various text analysis on the subtitles.
+
+```{r analysis}
+toy_story %>% 
+  unnest_tokens(word, subtitle) %>% 
+  count(word, sort = TRUE) %>% 
+  anti_join(stop_words)
+```
+
+Or uniformly manipulate the _numeric_ time stamps:
 
 ```{r shift}
-ts <- srt_shift(ts, seconds = 9.99)
+toy_story <- srt_shift(toy_story, seconds = 9.99)
+```
+
+The subtitle data frames can be easily re-written as valid SubRip files.
+
+```{r write}
 tmp <- tempfile(fileext = ".srt")
-write_srt(ts, tmp, wrap = FALSE)
+write_srt(toy_story, tmp, wrap = FALSE)
 ```
 
 ```{r post, echo=FALSE}
-cat(sub("^\\s+", "", readLines(tmp, n = 12)), sep = "\n")
+cat(readLines(tmp, n = 11), sep = "\n")
 ```
 
 <!-- refs: start -->
