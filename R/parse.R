@@ -15,7 +15,7 @@ srt_seconds <- function(x) {
 #' @rdname srt_seconds
 #' @export
 srt_index <- function(x) {
-  nl <- which(x == "")
+  nl <- newline(x)
   x <- x[c(1, nl + 1)]
   as.integer(x[!is.na(x)])
 }
@@ -25,7 +25,7 @@ srt_index <- function(x) {
 srt_text <- function(x, collapse = "\n") {
   nl <- newline(x)
   a <- c(2, nl + 2) + 1
-  b <- c(which(x == "") - 1, length(a))
+  b <- c(which(x == "") - 1, length(x))
   if (x[length(x)] == "") {
     b[length(b)] <- b[length(b)] - 1
   }
