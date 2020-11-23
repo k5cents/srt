@@ -19,6 +19,7 @@ test_that("non-srt files fail to write", {
 })
 
 test_that("written lines match read lines exactly", {
+  skip_on_os("windows")
   x <- read_srt(srt_example(2), collapse = "\n")
   p <- write_srt(x, tempfile(fileext = ".srt"), wrap = FALSE)
   expect_true(file.exists(p))
