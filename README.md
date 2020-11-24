@@ -15,13 +15,13 @@ coverage](https://codecov.io/gh/kiernann/srt/branch/master/graph/badge.svg)](htt
 status](https://github.com/kiernann/srt/workflows/R-CMD-check/badge.svg)](https://github.com/kiernann/srt/actions)
 <!-- badges: end -->
 
-The goal of ‘srt’ is to read
+The goal of srt is to read
 [SubRip](https://en.wikipedia.org/wiki/SubRip) text files as tabular
 data for easy analysis and manipulation.
 
 ## Installation
 
-You can install the development version of ‘srt’ from
+You can install the development version of srt from
 [GitHub](https://github.com/kiernann/srt) with:
 
 ``` r
@@ -41,6 +41,13 @@ columns of a data frame:
 4.  A blank line containing no text, indicating the end of this subtitle
 
 <!-- end list -->
+
+``` r
+library(srt)
+library(tidyverse)
+library(tidytext)
+srt <- srt_example("toy-story.en.srt")
+```
 
     #> 1
     #> 00:00:58,559 --> 00:01:01,602

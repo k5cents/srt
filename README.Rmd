@@ -31,12 +31,12 @@ if (!interactive()) {
 [![R build status][ga_badge]][ga_link]
 <!-- badges: end -->
 
-The goal of 'srt' is to read [SubRip][wiki] text files as tabular data for
-easy analysis and manipulation.
+The goal of srt is to read [SubRip][wiki] text files as tabular data for easy
+analysis and manipulation.
 
 ## Installation
 
-You can install the development version of 'srt' from [GitHub][gh] with:
+You can install the development version of srt from [GitHub][gh] with:
 
 ```{r install, eval=FALSE}
 # install.packages("remotes")
@@ -54,7 +54,7 @@ should disappear
 3. Subtitle text itself on one or more lines
 4. A blank line containing no text, indicating the end of this subtitle
 
-```{r library, echo=FALSE}
+```{r library}
 library(srt)
 library(tidyverse)
 library(tidytext)
