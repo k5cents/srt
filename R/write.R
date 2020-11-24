@@ -30,17 +30,6 @@ write_srt <- function(x, path = NULL, wrap = TRUE, width = 40) {
   invisible(path)
 }
 
-sub_lines <- function(l, wrap = TRUE, width = 40) {
-
-  paste(
-    l[[1]], # index
-    paste(l[[2]], l[[3]], sep = " --> "), #timestamp
-    l[[4]], # subtitle text
-    "", # newline break
-    sep = "\n"
-  )
-}
-
 as_timestamp <- function(y){
   if (is.character(y)) {
     return(y)
