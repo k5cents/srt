@@ -15,3 +15,8 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+
+## Resubmission
+
+* SubRip was quoted and source website linked.
+* Mentions of R removed from title and description.

@@ -1,14 +1,15 @@
 Package: srt
-Title: Read Subtitle Files into R
-Version: 0.0.1
+Title: Read Subtitle Files
+Version: 0.0.2
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
            role = c("aut", "cre"),
            email = "kiernann@protonmail.com")
-Description: Read SubRip subtitle files into R as data frames
-    for easy analysis and manipulation. Export subtitles back into SubRip
-    format or as tabular data.
+Description: Read 'SubRip' <https://sourceforge.net/projects/subrip/> 
+    subtitle files as data frames for easy text analysis or manipulation. 
+    Easily shift numeric timings and export subtitles back into valid 'SubRip' 
+    timestamp format to sync subtitles and audio.
 License: GPL-3
 URL: https://github.com/kiernann/srt, 
     https://kiernann.com/srt/
