@@ -12,6 +12,11 @@
 #' @param path File or connection to write to.
 #' @param wrap If `TRUE` (default), subtitle lines will be wrapped.
 #' @param width If `wrap` is `TRUE`, the width of each wrapped subtitle.
+#' @examples
+#' # read and write without line breaks
+#' x <- read_srt(srt_example(1), collapse = " ")
+#' write_srt(x, tempfile(fileext = ".srt"), wrap = FALSE)
+#' @return The path to the written file, invisibly.
 #' @export
 write_srt <- function(x, path = NULL, wrap = TRUE, width = 40) {
   stopifnot(is_srt(x))

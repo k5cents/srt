@@ -1,6 +1,7 @@
 #' Uniformly shift subtitle times
 #'
 #' @details
+#' Here is a workflow of how a linear srt file is shifted in R.
 #' ```
 #' read_srt(file) %>%
 #'   srt_shift(2.1) %>%
@@ -8,6 +9,11 @@
 #' ```
 #' @param x A subtitle data frame from [read_srt()].
 #' @param seconds The number of seconds to shift the start and end time.
+#' @examples
+#' # shift all start and stop by a some time
+#' x <- read_srt(srt_example(1), collapse = " ")
+#' srt_shift(x, 1.234)
+#' @return The numeric start times uniformly shifted by some amount.
 #' @export
 srt_shift <- function(x, seconds) {
   stopifnot(is_srt(x))

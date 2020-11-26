@@ -11,12 +11,20 @@ srt_shift(x, seconds)
 
 \item{seconds}{The number of seconds to shift the start and end time.}
 }
+\value{
+The numeric start times uniformly shifted by some amount.
+}
 \description{
 Uniformly shift subtitle times
 }
 \details{
-\preformatted{read_srt(file) \%>\%
+Here is a workflow of how a linear srt file is shifted in R.\preformatted{read_srt(file) \%>\%
   srt_shift(2.1) \%>\%
   write_srt(file)
 }
+}
+\examples{
+# shift all start and stop by a some time
+x <- read_srt(srt_example(1), collapse = " ")
+srt_shift(x, 1.234)
 }

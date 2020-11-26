@@ -7,7 +7,10 @@
 srt_example(file = NULL)
 }
 \arguments{
-\item{file}{Name of file. If \code{NULL}, the example files will be listed.}
+\item{file}{Name or number of file. If \code{NULL}, file names are be listed.}
+}
+\value{
+The path or name to example \code{.srt} files.
 }
 \description{
 srt comes bundled with a number of sample files in its \code{inst/extdata}
@@ -15,5 +18,6 @@ directory. This function make them easy to access.
 }
 \examples{
 srt_example()
+srt_example(1)
 srt_example("toy-story.en.srt")
 }

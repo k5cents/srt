@@ -2,6 +2,14 @@
 #'
 #' @param x A character vector with the lines of an `.srt` file.
 #' @param collapse The character with which to separate subtitle lines.
+#' @examples
+#' # return individual components of each subtitle
+#' x <- readLines(srt_example(1))
+#' head(srt_seconds(x)[[1]])
+#' head(srt_index(x))
+#' head(srt_text(x))
+#' @return The parsed individual components of a subtitle: integer indexes,
+#'   numeric times, and collapsed string subtitles.
 #' @export
 srt_seconds <- function(x) {
   nl <- newline(x)

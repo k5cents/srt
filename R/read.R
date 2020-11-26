@@ -11,7 +11,9 @@
 #' @param path A path or connection to an `.srt` file.
 #' @param collapse The character with which to separate subtitle lines.
 #' @examples
+#' # read linear text to tabular data
 #' read_srt(srt_example("toy-story.en.srt"), " ")
+#' @return A data frame of subtitles.
 #' @export
 read_srt <- function(path, collapse = "\n") {
   x <- readLines(con = path)

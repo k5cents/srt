@@ -15,6 +15,9 @@ write_srt(x, path = NULL, wrap = TRUE, width = 40)
 
 \item{width}{If \code{wrap} is \code{TRUE}, the width of each wrapped subtitle.}
 }
+\value{
+The path to the written file, invisibly.
+}
 \description{
 Write subtitle data frame as SubRip text file
 }
@@ -28,4 +31,9 @@ and the time it should disappear
 \item Subtitle text itself on one or more lines
 \item A blank line containing no text, indicating the end of this subtitle
 }
+}
+\examples{
+# read and write without line breaks
+x <- read_srt(srt_example(1), collapse = " ")
+write_srt(x, tempfile(fileext = ".srt"), wrap = FALSE)
 }

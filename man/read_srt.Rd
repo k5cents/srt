@@ -11,6 +11,9 @@ read_srt(path, collapse = "\\n")
 
 \item{collapse}{The character with which to separate subtitle lines.}
 }
+\value{
+A data frame of subtitles.
+}
 \description{
 Convert the SubRip file format to a tabular data frame of times and text.
 }
@@ -22,5 +25,6 @@ These components (index, time, text) can be parsed individually and combined
 into a data frame of subtitle groups.
 }
 \examples{
+# read linear text to tabular data
 read_srt(srt_example("toy-story.en.srt"), " ")
 }
