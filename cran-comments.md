@@ -18,5 +18,6 @@
 
 ## Resubmission
 
+* `\value` tags added to documentation.
 * SubRip was quoted and source website linked.
 * Mentions of R removed from title and description.
