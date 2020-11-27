@@ -1,5 +1,5 @@
 Package: srt
-Title: Read Subtitle Files As Tabular Data
+Title: Read Subtitle Files as Tabular Data
 Version: 1.0.0
 Authors@R: 
     person(given = "Kiernan",
