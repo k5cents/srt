@@ -1,6 +1,6 @@
 Package: srt
 Title: Read Subtitle Files as Tabular Data
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",

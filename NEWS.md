@@ -1,3 +1,7 @@
+# srt 1.0.1
+
+* Use UTF-8 string encoding where needed and skip tests when unavailable.
+
 # srt 1.0.0
 
 * Added a `NEWS.md` file to track changes to the package.
