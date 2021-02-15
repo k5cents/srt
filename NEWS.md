@@ -1,5 +1,6 @@
 # srt 1.0.1
 
+* Example files are replaced with one from the public domain.
 * Use UTF-8 string encoding where needed and skip tests when unavailable.
 
 # srt 1.0.0

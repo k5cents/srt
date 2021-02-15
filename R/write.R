@@ -14,7 +14,7 @@
 #' @param width If `wrap` is `TRUE`, the width of each wrapped subtitle.
 #' @examples
 #' # read and write without line breaks
-#' x <- read_srt(srt_example(1), collapse = " ")
+#' x <- read_srt(srt_example(), collapse = " ")
 #' write_srt(x, tempfile(fileext = ".srt"), wrap = FALSE)
 #' @return The path to the written file, invisibly.
 #' @export

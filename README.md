@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/srt)](https://CRAN.R-project.org/package=srt)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/srt)
@@ -45,89 +45,88 @@ columns of a data frame:
 library(srt)
 library(tidyverse)
 library(tidytext)
-srt <- srt_example("toy-story.en.srt")
+srt <- srt_example()
 ```
 
     #> 1
-    #> 00:00:58,559 --> 00:01:01,602
-    #> BOY: All right, everyone!
-    #> This... is a stick-up!
+    #> 00:01:25,210 --> 00:01:28,004
+    #> I owe everything to George Bailey.
     #> 
     #> 2
-    #> 00:01:01,687 --> 00:01:03,354
-    #> Don't anybody move!
+    #> 00:01:28,422 --> 00:01:30,298
+    #> Help him, dear Father.
     #> 
     #> 3
-    #> 00:01:04,398 --> 00:01:06,482
-    #> Now, empty that safe!
+    #> 00:01:30,674 --> 00:01:33,718
+    #> Joseph, Jesus and Mary,
 
 These subtitle files are parsed as data frames with separate columns.
 
 ``` r
-(toy_story <- read_srt(path = srt, collapse = " "))
-#> # A tibble: 1,398 x 4
-#>        n start   end subtitle                                        
-#>    <int> <dbl> <dbl> <chr>                                           
-#>  1     1  58.6  61.6 BOY: All right, everyone! This... is a stick-up!
-#>  2     2  61.7  63.4 Don't anybody move!                             
-#>  3     3  64.4  66.5 Now, empty that safe!                           
-#>  4     4  68.3  71.6 Ooh-hoo-hoo! Money, money, money! (KISSING)     
-#>  5     5  71.7  74.0 Stop it! Stop it, you mean, old potato!         
-#>  6     6  74.1  77.2 Quiet, Bo Peep, or your sheep get run over!     
-#>  7     7  77.3  79.3 Help! Baa! Help us!                             
-#>  8     8  79.4  83.0 Oh, no, not my sheep! Somebody do something!    
-#>  9     9  89.3  92.4 VOICE BOX: Reach for the sky!                   
-#> 10    10  92.5  94.7 Oh, no! Sheriff Woody!                          
-#> # … with 1,388 more rows
+(wonderful_life <- read_srt(path = srt, collapse = " "))
+#> # A tibble: 2,268 x 4
+#>        n start   end subtitle                           
+#>    <int> <dbl> <dbl> <chr>                              
+#>  1     1  85.2  88.0 I owe everything to George Bailey. 
+#>  2     2  88.4  90.3 Help him, dear Father.             
+#>  3     3  90.7  93.7 Joseph, Jesus and Mary,            
+#>  4     4  93.8  96.4 help my friend Mr. Bailey.         
+#>  5     5  96.9  99.5 Help my son George tonight.        
+#>  6     6 100.  102.  He never thinks about himself, God.
+#>  7     7 102.  104.  That's why he's in trouble.        
+#>  8     8 104.  105.  George is a good guy.              
+#>  9     9 106.  108.  Give him a break, God.             
+#> 10    10 108.  110.  I love him, dear Lord.             
+#> # … with 2,258 more rows
 ```
 
 This makes it easy to perform various text analysis on the subtitles.
 
 ``` r
-toy_story %>% 
+wonderful_life %>% 
   unnest_tokens(word, subtitle) %>% 
   count(word, sort = TRUE) %>% 
   anti_join(stop_words)
-#> # A tibble: 1,314 x 2
-#>    word      n
-#>    <chr> <int>
-#>  1 buzz    122
-#>  2 woody    72
-#>  3 hey      63
-#>  4 whoa     37
-#>  5 andy     35
-#>  6 ha       35
-#>  7 mom      35
-#>  8 gasps    31
-#>  9 sid      30
-#> 10 toy      30
-#> # … with 1,304 more rows
+#> # A tibble: 1,651 x 2
+#>    word       n
+#>    <chr>  <int>
+#>  1 george   216
+#>  2 mary      85
+#>  3 bailey    74
+#>  4 hey       56
+#>  5 harry     53
+#>  6 yeah      50
+#>  7 gonna     45
+#>  8 potter    45
+#>  9 home      34
+#> 10 money     34
+#> # … with 1,641 more rows
 ```
 
 Or uniformly manipulate the *numeric* time stamps:
 
 ``` r
-toy_story <- srt_shift(toy_story, seconds = 9.99)
+wonderful_life <- srt_shift(wonderful_life, seconds = 9.99)
 ```
 
 The subtitle data frames can be easily re-written as valid SubRip files.
 
 ``` r
 tmp <- tempfile(fileext = ".srt")
-write_srt(toy_story, tmp, wrap = FALSE)
+write_srt(wonderful_life, tmp, wrap = FALSE)
 ```
 
     #> 1
-    #> 00:01:08,549 --> 00:01:11,592
-    #> BOY: All right, everyone! This... is a stick-up!
+    #> 00:01:35,200 --> 00:01:37,994
+    #> I owe everything to George Bailey.
     #> 
     #> 2
-    #> 00:01:11,677 --> 00:01:13,344
-    #> Don't anybody move!
+    #> 00:01:38,412 --> 00:01:40,288
+    #> Help him, dear Father.
     #> 
     #> 3
-    #> 00:01:14,388 --> 00:01:16,472
-    #> Now, empty that safe!
+    #> 00:01:40,664 --> 00:01:43,708
+    #> Joseph, Jesus and Mary,
 
 <!-- refs: start -->
 <!-- refs: end -->

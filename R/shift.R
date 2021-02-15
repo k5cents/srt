@@ -11,7 +11,7 @@
 #' @param seconds The number of seconds to shift the start and end time.
 #' @examples
 #' # shift all start and stop by a some time
-#' x <- read_srt(srt_example(1), collapse = " ")
+#' x <- read_srt(srt_example(), collapse = " ")
 #' srt_shift(x, 1.234)
 #' @return The numeric start times uniformly shifted by some amount.
 #' @export

@@ -7,9 +7,9 @@
   * ubuntu-20.04 (release)
   * ubuntu-20.04 (devel)
 * r-hub: windows-x86_64-devel, ubuntu-gcc-release, fedora-clang-devel
-  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-9556da166e2f4bee839cc26d79849bc4>
-  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-57953a17314e4071a6960f6d9c25c462>
-  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-03fda78f4e6f415aacf485b9d0c7c141>
+  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-c9a2cd65fb5044d9a6bbe72c4885d80b>
+  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-b4500f6a18de4f3baf233bc7294b8179>
+  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-06afd9f794b94f129b7485cf77ac835c>
 
 ## R CMD check results
 
@@ -19,6 +19,7 @@
 
 * Strings are converted to UTF-8 with `enc2utf8()` where needed and tests that
   reply on encoding are skipped on systems where said encoding is unavailable.
+* Example files are replaced with one from the public domain.
 
 ## Previous Submission
 

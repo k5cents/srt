@@ -59,23 +59,23 @@ should disappear
 library(srt)
 library(tidyverse)
 library(tidytext)
-srt <- srt_example("toy-story.en.srt")
+srt <- srt_example()
 ```
 
 ```{r lines, echo=FALSE}
-cat(readLines(srt, n = 12), sep = "\n")
+cat(readLines(srt, n = 11), sep = "\n")
 ```
 
 These subtitle files are parsed as data frames with separate columns.
 
 ```{r tabular}
-(toy_story <- read_srt(path = srt, collapse = " "))
+(wonderful_life <- read_srt(path = srt, collapse = " "))
 ```
 
 This makes it easy to perform various text analysis on the subtitles.
 
 ```{r analysis}
-toy_story %>% 
+wonderful_life %>% 
   unnest_tokens(word, subtitle) %>% 
   count(word, sort = TRUE) %>% 
   anti_join(stop_words)
@@ -84,14 +84,14 @@ toy_story %>%
 Or uniformly manipulate the _numeric_ time stamps:
 
 ```{r shift}
-toy_story <- srt_shift(toy_story, seconds = 9.99)
+wonderful_life <- srt_shift(wonderful_life, seconds = 9.99)
 ```
 
 The subtitle data frames can be easily re-written as valid SubRip files.
 
 ```{r write}
 tmp <- tempfile(fileext = ".srt")
-write_srt(toy_story, tmp, wrap = FALSE)
+write_srt(wonderful_life, tmp, wrap = FALSE)
 ```
 
 ```{r post, echo=FALSE}
@@ -100,7 +100,7 @@ cat(readLines(tmp, n = 11), sep = "\n")
 
 <!-- refs: start -->
 [life_badge]: https://img.shields.io/badge/lifecycle-experimental-orange.svg
-[life_link]: https://www.tidyverse.org/lifecycle/#experimental
+[life_link]: https://lifecycle.r-lib.org/articles/stages.html
 [cran_badge]: https://www.r-pkg.org/badges/version/srt
 [cran_link]: https://CRAN.R-project.org/package=srt
 [dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/srt

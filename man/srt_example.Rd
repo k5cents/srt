@@ -4,20 +4,18 @@
 \alias{srt_example}
 \title{Get path to srt example}
 \usage{
-srt_example(file = NULL)
-}
-\arguments{
-\item{file}{Name or number of file. If \code{NULL}, file names are be listed.}
+srt_example()
 }
 \value{
-The path or name to example \code{.srt} files.
+The path or name to a example \code{.srt} file.
 }
 \description{
 srt comes bundled with a number of sample files in its \code{inst/extdata}
 directory. This function make them easy to access.
 }
+\details{
+\emph{It's a Wonderful Life} (1946) entered the public domain in 1974.
+}
 \examples{
 srt_example()
-srt_example(1)
-srt_example("toy-story.en.srt")
 }

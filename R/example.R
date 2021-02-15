@@ -3,19 +3,16 @@
 #' srt comes bundled with a number of sample files in its `inst/extdata`
 #' directory. This function make them easy to access.
 #'
-#' @param file Name or number of file. If `NULL`, file names are be listed.
+#' _It's a Wonderful Life_ (1946) entered the public domain in 1974.
+#'
 #' @examples
 #' srt_example()
-#' srt_example(1)
-#' srt_example("toy-story.en.srt")
-#' @return The path or name to example `.srt` files.
+#' @return The path or name to a example `.srt` file.
 #' @export
-srt_example <- function(file = NULL) {
-  exs <- dir(system.file("extdata", package = "srt"))
-  if (is.null(file)) {
-    return(exs)
-  } else if (is.numeric(file)) {
-    file <- exs[file]
-  }
-  system.file("extdata", file, package = "srt", mustWork = TRUE)
+srt_example <- function() {
+  system.file(
+    "extdata", "Its-a-Wonderful-Life.srt",
+    package = "srt",
+    mustWork = TRUE
+  )
 }

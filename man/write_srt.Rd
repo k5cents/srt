@@ -34,6 +34,6 @@ and the time it should disappear
 }
 \examples{
 # read and write without line breaks
-x <- read_srt(srt_example(1), collapse = " ")
+x <- read_srt(srt_example(), collapse = " ")
 write_srt(x, tempfile(fileext = ".srt"), wrap = FALSE)
 }

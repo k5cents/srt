@@ -4,7 +4,7 @@
 #' @param collapse The character with which to separate subtitle lines.
 #' @examples
 #' # return individual components of each subtitle
-#' x <- readLines(srt_example(1))
+#' x <- readLines(srt_example())
 #' head(srt_seconds(x)[[1]])
 #' head(srt_index(x))
 #' head(srt_text(x))

@@ -26,5 +26,5 @@ into a data frame of subtitle groups.
 }
 \examples{
 # read linear text to tabular data
-read_srt(srt_example("toy-story.en.srt"), " ")
+read_srt(srt_example(), collapse = " ")
 }

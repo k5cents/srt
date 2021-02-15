@@ -12,7 +12,7 @@
 #' @param collapse The character with which to separate subtitle lines.
 #' @examples
 #' # read linear text to tabular data
-#' read_srt(srt_example("toy-story.en.srt"), " ")
+#' read_srt(srt_example(), collapse = " ")
 #' @return A data frame of subtitles.
 #' @export
 read_srt <- function(path, collapse = "\n") {
