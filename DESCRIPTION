@@ -6,13 +6,13 @@ Authors@R:
            family = "Nicholls",
            role = c("aut", "cre"),
            email = "kiernann@protonmail.com")
-Description: Read 'SubRip' <https://sourceforge.net/projects/subrip/> 
-    subtitle files as data frames for easy text analysis or manipulation. 
-    Easily shift numeric timings and export subtitles back into valid 'SubRip' 
-    timestamp format to sync subtitles and audio.
+Description: Read 'SubRip'
+    <https://sourceforge.net/projects/subrip/> subtitle files as data
+    frames for easy text analysis or manipulation.  Easily shift numeric
+    timings and export subtitles back into valid 'SubRip' timestamp format
+    to sync subtitles and audio.
 License: GPL-3
-URL: https://github.com/kiernann/srt, 
-    https://kiernann.com/srt/
+URL: https://github.com/kiernann/srt, https://kiernann.com/srt/
 BugReports: https://github.com/kiernann/srt/issues
 Suggests: 
     covr (>= 3.5.1),
