@@ -31,6 +31,7 @@ write_srt <- function(x, path = NULL, wrap = TRUE, width = 40) {
     "", # newline break
     sep = "\n"
   )
+  subs <- enc2utf8(subs)
   writeLines(subs, con = path, sep = "\n")
   invisible(path)
 }

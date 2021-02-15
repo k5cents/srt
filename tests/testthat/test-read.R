@@ -1,4 +1,5 @@
 test_that("movie srt files can be read as data frames", {
+  skip_non_utf8()
   ex <- srt_example("toy-story.en.srt")
   x <- read_srt(ex, collapse = " ")
   expect_length(x, 4)
@@ -10,6 +11,7 @@ test_that("movie srt files can be read as data frames", {
 })
 
 test_that("television srt files can be read as data frames", {
+  skip_non_utf8()
   ex <- srt_example("community-pilot.en.srt")
   x <- read_srt(ex, collapse = "\n")
   expect_length(x, 4)

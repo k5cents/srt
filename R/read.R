@@ -16,7 +16,7 @@
 #' @return A data frame of subtitles.
 #' @export
 read_srt <- function(path, collapse = "\n") {
-  x <- readLines(con = path)
+  x <- enc2utf8(readLines(con = path))
   t <- srt_seconds(x)
   y <- data.frame(
     stringsAsFactors = FALSE,
