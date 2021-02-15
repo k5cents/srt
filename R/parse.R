@@ -25,7 +25,7 @@ srt_seconds <- function(x) {
 srt_index <- function(x) {
   nl <- newline(x)
   x <- x[c(1, nl + 1)]
-  as.integer(x[!is.na(x)])
+  as.integer(grep("^\\d+$", x, value = TRUE))
 }
 
 #' @rdname srt_seconds
