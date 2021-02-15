@@ -9,6 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/srt)](https://CRAN.R-project.org/package=srt)
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/srt)
 [![Codecov test
 coverage](https://codecov.io/gh/kiernann/srt/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/srt?branch=master)
 [![R build
@@ -39,8 +40,6 @@ columns of a data frame:
     time it should disappear
 3.  Subtitle text itself on one or more lines
 4.  A blank line containing no text, indicating the end of this subtitle
-
-<!-- end list -->
 
 ``` r
 library(srt)
@@ -131,5 +130,4 @@ write_srt(toy_story, tmp, wrap = FALSE)
     #> Now, empty that safe!
 
 <!-- refs: start -->
-
 <!-- refs: end -->
