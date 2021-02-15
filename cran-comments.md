@@ -6,9 +6,9 @@
 * github actions: macOS-latest (release)
 * github actions: windows-latest (release) 
 * r-hub: windows-x86_64-devel, ubuntu-gcc-release, fedora-clang-devel
-  * <https://builder.r-hub.io/status/srt_0.0.2.tar.gz-58a9ff3e1a9f45a59c4b3bc6da7cc7fd>
-  * <https://builder.r-hub.io/status/srt_0.0.2.tar.gz-011e632d12e44f5885498e2d1239e93e>
-  * <https://builder.r-hub.io/status/srt_0.0.2.tar.gz-5f7d0c51166d49b5b6c43c94435a1d9a>
+  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-9556da166e2f4bee839cc26d79849bc4>
+  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-57953a17314e4071a6960f6d9c25c462>
+  * <https://builder.r-hub.io/status/srt_1.0.1.tar.gz-03fda78f4e6f415aacf485b9d0c7c141>
 
 ## R CMD check results
 
