@@ -17,6 +17,10 @@
 #' @export
 read_srt <- function(path, collapse = "\n") {
   x <- enc2utf8(readLines(con = path))
+  nl <- newline(x, rm.last = FALSE)
+  if (any(diff(nl) == 1)) {
+    x <- x[-nl[diff(nl) == 1]]
+  }
   t <- srt_seconds(x)
   y <- data.frame(
     stringsAsFactors = FALSE,
