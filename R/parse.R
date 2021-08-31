@@ -44,9 +44,9 @@ srt_text <- function(x, collapse = "\n") {
   return(y)
 }
 
-newline <- function(x) {
+newline <- function(x, rm.last = TRUE) {
   nl <- which(x == "")
-  if (x[length(x)] == "") {
+  if (rm.last & x[length(x)] == "") {
     nl <- nl[-length(nl)]
   }
   return(nl)
