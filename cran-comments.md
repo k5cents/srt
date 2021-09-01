@@ -7,23 +7,20 @@
   * ubuntu-20.04 (release)
   * ubuntu-20.04 (devel)
 * r-hub: windows-x86_64-devel, ubuntu-gcc-release, fedora-clang-devel
-  * <https://builder.r-hub.io/status/srt_1.0.2.tar.gz-5143ae60ea8749be930c9e0ba31fe93c>
-  * <https://builder.r-hub.io/status/srt_1.0.2.tar.gz-e1e90976b8454ca9bed819a96cdb6f78>
-  * <https://builder.r-hub.io/status/srt_1.0.2.tar.gz-46a57e7bd59549eaa0a38de003106059>
+  * <https://builder.r-hub.io/status/srt_1.0.3.tar.gz-23cbb635199c4bb7977c5848534009ca>
+  * <https://builder.r-hub.io/status/srt_1.0.3.tar.gz-8f417aa6e4e64dbba9e402b2f938d421>
+  * <https://builder.r-hub.io/status/srt_1.0.3.tar.gz-f271f87d665845f5bbc8a8c46da2beb2>
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
 
-## Resubmission
+## Previous Submission(s)
 
 * Strings are converted to UTF-8 with `enc2utf8()` where needed and tests that
   reply on encoding are skipped on systems where said encoding is unavailable.
 * Example files are replaced with one from the public domain.
 * Redirected URLs are now replaced in documentation.
-
-## Previous Submission
-
 * `\value` tags added to documentation.
 * SubRip was quoted and source website linked.
 * Mentions of R removed from title and description.
