@@ -1,3 +1,5 @@
+# srt (development version)
+
 # srt 1.0.3
 
 * Remove consecutive newlines in character vector before parsing subtitles (#3).
