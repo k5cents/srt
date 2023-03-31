@@ -11,13 +11,19 @@
 #' @return The parsed individual components of a subtitle: integer indexes,
 #'   numeric times, and collapsed string subtitles.
 #' @export
-srt_seconds <- function(x) {
+srt_seconds <- function(x, hms = TRUE) {
   nl <- newline(x)
   times <- strsplit(x[c(2, nl + 2)], "\\s-->\\s")
-  times <- lapply(times, as_seconds)
-  seconds <- do.call(Map, c(f = c, times))
-  names(seconds) <- c("start", "end")
-  return(seconds)
+  times <- lapply(1:2, function(x) gsub(",", ".", get_nth(times, x)))
+  names(times) <- c("start", "end")
+  lapply(
+    X = times,
+    FUN = ifelse(
+      test = isTRUE(hms) && is_installed("hms"),
+      yes = hms::as_hms,
+      no = as_seconds
+    )
+  )
 }
 
 #' @rdname srt_seconds
@@ -63,3 +69,13 @@ sum_time <- function(l) {
   l[2] <- l[2] + (l[1] * 60)
   l[3] + (l[2] * 60)
 }
+
+get_nth <- function(l, n) {
+  vapply(
+    X = l,
+    FUN = `[`,
+    FUN.VALUE = character(1),
+    n
+  )
+}
+

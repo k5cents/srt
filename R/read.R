@@ -10,18 +10,19 @@
 #'
 #' @param path A path or connection to an `.srt` file.
 #' @param collapse The character with which to separate subtitle lines.
+#' @param hms Whether to parse time stamps as hms time (or leave seconds).
 #' @examples
 #' # read linear text to tabular data
 #' read_srt(srt_example(), collapse = " ")
 #' @return A data frame of subtitles.
 #' @export
-read_srt <- function(path, collapse = "\n") {
+read_srt <- function(path, collapse = "\n", hms = TRUE) {
   x <- enc2utf8(readLines(con = path))
   nl <- newline(x, rm.last = FALSE)
   if (any(diff(nl) == 1)) {
     x <- x[-nl[diff(nl) == 1]]
   }
-  t <- srt_seconds(x)
+  t <- srt_seconds(x, hms = hms)
   y <- data.frame(
     stringsAsFactors = FALSE,
     n = srt_index(x),
