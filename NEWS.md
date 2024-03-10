@@ -1,4 +1,6 @@
-# srt (development version)
+# srt 1.0.4
+
+* Update maintainer email, website URL, and GitHub URL.
 
 # srt 1.0.3
 

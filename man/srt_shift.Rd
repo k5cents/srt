@@ -18,10 +18,12 @@ The numeric start times uniformly shifted by some amount.
 Uniformly shift subtitle times
 }
 \details{
-Here is a workflow of how a linear srt file is shifted in R.\preformatted{read_srt(file) \%>\%
+Here is a workflow of how a linear srt file is shifted in R.
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{read_srt(file) \%>\%
   srt_shift(2.1) \%>\%
   write_srt(file)
-}
+}\if{html}{\out{</div>}}
 }
 \examples{
 # shift all start and stop by a some time

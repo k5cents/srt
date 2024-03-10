@@ -1,7 +1,7 @@
 ## Test environments
 
-* local: ubuntu-20.04 (release), R 4.0.3
-* github actions: <https://github.com/kiernann/srt/actions>
+* local: ubuntu 22.04.4, R 4.1.2
+* github actions: <https://github.com/k5cents/srt/actions>
   * windows-latest (release) 
   * macOS-latest (release)
   * ubuntu-20.04 (release)
@@ -14,6 +14,12 @@
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
+
+## Submission
+
+* Update email from kiernann@pronmail.com to k5cents@gmail.com
+* Update URLs from kiernann.com to k5cents.com
+* Update Github from @kiernann to @k5cents
 
 ## Previous Submission(s)
 

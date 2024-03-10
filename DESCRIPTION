@@ -1,19 +1,16 @@
 Package: srt
 Title: Read Subtitle Files as Tabular Data
-Version: 1.0.3.9000
+Version: 1.0.4
 Authors@R: 
-    person(given = "Kiernan",
-           family = "Nicholls",
-           role = c("aut", "cre"),
-           email = "kiernann@protonmail.com")
-Description: Read 'SubRip'
-    <https://sourceforge.net/projects/subrip/> subtitle files as data
-    frames for easy text analysis or manipulation.  Easily shift numeric
-    timings and export subtitles back into valid 'SubRip' timestamp format
-    to sync subtitles and audio.
+    person("Kiernan", "Nicholls", email = "k5cents@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-9229-7897"))
+Description: Read 'SubRip' <https://sourceforge.net/projects/subrip/>
+    subtitle files as data frames for easy text analysis or manipulation.
+    Easily shift numeric timings and export subtitles back into valid
+    'SubRip' timestamp format to sync subtitles and audio.
 License: GPL-3
-URL: https://github.com/kiernann/srt, https://kiernann.com/srt/
-BugReports: https://github.com/kiernann/srt/issues
+URL: https://k5cents.github.io/srt/, https://github.com/k5cents/srt
+BugReports: https://github.com/k5cents/srt/issues
 Suggests: 
     covr (>= 3.5.1),
     spelling (>= 2.2),
@@ -22,4 +19,4 @@ Suggests:
 Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
