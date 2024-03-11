@@ -11,9 +11,9 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/srt)](https://CRAN.R-project.org/package=srt)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/srt)
 [![Codecov test
-coverage](https://codecov.io/gh/kiernann/srt/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/srt?branch=master)
+coverage](https://codecov.io/gh/k5cents/srt/branch/master/graph/badge.svg)](https://codecov.io/gh/k5cents/srt?branch=master)
 [![R build
-status](https://github.com/kiernann/srt/workflows/R-CMD-check/badge.svg)](https://github.com/kiernann/srt/actions)
+status](https://github.com/k5cents/srt/workflows/R-CMD-check/badge.svg)](https://github.com/k5cents/srt/actions)
 <!-- badges: end -->
 
 The goal of srt is to read
@@ -23,11 +23,11 @@ data for easy analysis and manipulation.
 ## Installation
 
 You can install the development version of srt from
-[GitHub](https://github.com/kiernann/srt) with:
+[GitHub](https://github.com/k5cents/srt) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("kiernann/srt")
+remotes::install_github("k5cents/srt")
 ```
 
 ## Example
@@ -64,7 +64,7 @@ These subtitle files are parsed as data frames with separate columns.
 
 ``` r
 (wonderful_life <- read_srt(path = srt, collapse = " "))
-#> # A tibble: 2,268 x 4
+#> # A tibble: 2,268 × 4
 #>        n start   end subtitle                           
 #>    <int> <dbl> <dbl> <chr>                              
 #>  1     1  85.2  88.0 I owe everything to George Bailey. 
@@ -77,7 +77,7 @@ These subtitle files are parsed as data frames with separate columns.
 #>  8     8 104.  105.  George is a good guy.              
 #>  9     9 106.  108.  Give him a break, God.             
 #> 10    10 108.  110.  I love him, dear Lord.             
-#> # … with 2,258 more rows
+#> # ℹ 2,258 more rows
 ```
 
 This makes it easy to perform various text analysis on the subtitles.
@@ -87,7 +87,7 @@ wonderful_life %>%
   unnest_tokens(word, subtitle) %>% 
   count(word, sort = TRUE) %>% 
   anti_join(stop_words)
-#> # A tibble: 1,651 x 2
+#> # A tibble: 1,651 × 2
 #>    word       n
 #>    <chr>  <int>
 #>  1 george   216
@@ -100,7 +100,7 @@ wonderful_life %>%
 #>  8 potter    45
 #>  9 home      34
 #> 10 money     34
-#> # … with 1,641 more rows
+#> # ℹ 1,641 more rows
 ```
 
 Or uniformly manipulate the *numeric* time stamps:
