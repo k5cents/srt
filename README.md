@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/srt)](https://CRAN.R-project.org/package=srt)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/srt)
 [![Codecov test
-coverage](https://codecov.io/gh/k5cents/srt/branch/master/graph/badge.svg)](https://codecov.io/gh/k5cents/srt?branch=master)
+coverage](https://codecov.io/gh/k5cents/srt/graph/badge.svg?token=CMz6DIxJdH)](https://app.codecov.io/gh/k5cents/srt?branch=master)
 [![R build
 status](https://github.com/k5cents/srt/workflows/R-CMD-check/badge.svg)](https://github.com/k5cents/srt/actions)
 <!-- badges: end -->

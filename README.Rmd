@@ -106,8 +106,8 @@ cat(readLines(tmp, n = 11), sep = "\n")
 [dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/srt
 [ga_badge]: https://github.com/k5cents/srt/workflows/R-CMD-check/badge.svg
 [ga_link]: https://github.com/k5cents/srt/actions
-[cov_badge]: https://codecov.io/gh/k5cents/srt/branch/master/graph/badge.svg
-[cov_link]: https://codecov.io/gh/k5cents/srt?branch=master
+[cov_badge]: https://codecov.io/gh/k5cents/srt/graph/badge.svg?token=CMz6DIxJdH
+[cov_link]: https://app.codecov.io/gh/k5cents/srt?branch=master
 [gh]: https://github.com/k5cents/srt
 [wiki]: https://en.wikipedia.org/wiki/SubRip
 <!-- refs: end -->

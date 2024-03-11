@@ -15,8 +15,9 @@
 
 0 errors | 0 warnings | 0 note
 
-## Submission
+## ReSubmission
 
+* Fix 301 redirected link in the README.
 * Update email from kiernann@pronmail.com to k5cents@gmail.com
 * Update URLs from kiernann.com to k5cents.com
 * Update Github from @kiernann to @k5cents
